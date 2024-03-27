@@ -1,17 +1,27 @@
 import sys
+from collections import deque
 
 n = int(sys.stdin.readline())
-line = list(map(int, sys.stdin.readline().split()))
+queue = deque(list(map(int, sys.stdin.readline().split())))
 stack = []
-while True:
-    if len(line) == 0:
-        break
-    if line[0] != min(line):
-        stack.append(line.pop(0))
-    else:
-        line.pop(0)
 
-if len(line) == 0:
+order = 1
+
+while queue:
+    if queue[0] == order:
+        queue.popleft()
+        order += 1
+    elif queue[0] != order:
+        stack.append(queue.popleft())
+
+    while stack:
+        if stack[-1] == order:
+            stack.pop()
+            order += 1
+        else:
+            break
+
+if (order - 1) == n:
     print("Nice")
 else:
     print("Sad")
