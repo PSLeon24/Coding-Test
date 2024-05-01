@@ -9,9 +9,11 @@ poketmon = {}
 for i in range(1, n + 1):
     name = input().rstrip()
     poketmon[name] = str(i)
+    poketmon[i] = name
+
 for _ in range(m):
     call = input().rstrip()
     if call.isnumeric():
-        print(list(poketmon.keys())[int(call) - 1])
+        print(poketmon[int(call)])
     else:
         print(poketmon[call])
