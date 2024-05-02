@@ -44,3 +44,13 @@ def bfs(graph, start, visited):
         
 bfs(graph, 1, visited)
 ```
+
+## Statistics
+
+```
+import statistics
+n = int(input())
+numbers = [int(input()) for _ in range(n)]
+mode = statistics.mode(numbers) # 최빈값 하나만 뽑을 때
+modes = statistics.multimode(numbers) # 최빈값이 여러 개가 의심될 때
+```
