@@ -37,4 +37,4 @@ for i in string:
     result += alphabet[i] * (31**exponent)
     exponent += 1
 
-print(result)
+print(result % 1234567891)
